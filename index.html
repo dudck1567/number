@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>계산기</title>
+    <script src="js/jquery-3.5.1.min.js"></script> 
+</head>
+<body>
+    <div id="wrap">
+        값 : <input type="number" max="4" min="1" id="x" name="x">
+        퍼센트 : <input type="number" id="n" name="n">
+    
+        잔여 : 
+        <div id="resultMin"></div> ~ <div id="resultMax"></div>
+        <button id="button">확인</button>
+
+
+    
+        <script>
+            var y,x,n,z1,z2
+
+            $('#x').on("keyup", function(){
+
+                n = $('#n').val();
+                x = $('#x').val();
+
+                if(x==1){
+                    y=3000000;
+                } else if(x==2){
+                    y=6000000;
+                } else if(x==3){
+                    y=9000000;
+                } else if(x==4){
+                    y=12000000;
+                }
+
+                if (n){
+                    z1 = y*((n-1)/100);
+                    z2 = y*(n/100);
+                    console.log(z1)
+                    
+                    document.getElementById('resultMin').textContent = z1;
+                    document.getElementById('resultMax').textContent = z2;
+                }
+             
+            })
+           
+            $('#n').on("keyup", function(){
+                n = $('#n').val();
+                x = $('#x').val();
+
+
+                if(x==1){
+                    y=3000000;
+                } else if(x==2){
+                    y=6000000;
+                } else if(x==3){
+                    y=9000000;
+                } else if(x==4){
+                    y=12000000;
+                }
+               
+                if (x){
+                    z1 = y*((n-1)/100);
+                    z2 = y*(n/100);
+                    document.getElementById('resultMin').textContent = z1;
+                    document.getElementById('resultMax').textContent = z2;
+                }
+
+            })
+
+            
+
+    
+        </script>
+    </div>
+</body>
+</html>
